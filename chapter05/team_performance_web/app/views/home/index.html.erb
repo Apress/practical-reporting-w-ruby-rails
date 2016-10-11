@@ -1,0 +1,42 @@
+<h1>Team Performance Reporting</h1>
+
+<div id="top">
+  <%=select 'player', 'id', 
+            [['Click here to select a player',""]] + 
+            @available_players.map { |p| 
+                                     [p.name, p.id] },
+            {:include_blank=>false} %>
+  <%=select 'game', 'id', 
+            [['Click here to select a game',""]] + 
+            @available_games.map { |g| 
+                                    [g.name, g.id] },
+            {:include_blank=>false} %>
+</div>
+<div id="chart">
+</div>
+
+<script>
+  
+  function show_report(){
+    $('chart').hide();
+    var player_id = $('player_id').value;
+    var game_id = $('game_id').value
+    if( player_id && game_id ) {
+      new Ajax.Updater("chart", 
+                       '/performance'+ 
+                       '/' + $('game_id').value + 
+                       '/' + $('player_id').value, 
+
+                        {evalScripts:true,
+                         method:'get',
+                         onComplete:function(){
+                            setTimeout("$('chart').show();",
+                                       400);   }
+                         }
+                      );
+    }
+  }
+  Event.observe("player_id", "change", show_report);
+  Event.observe("game_id", "change", show_report);
+  
+</script>

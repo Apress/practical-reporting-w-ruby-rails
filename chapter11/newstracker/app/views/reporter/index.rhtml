@@ -1,0 +1,12 @@
+<h1>Our Company In The Media</h1>
+
+<p>
+<%
+  story_count_max = @stories.max { |a,b| a.count.to_i <=> b.count.to_i }.count.to_f
+
+  story_data = @stories.map{|x| ["#{x.published_at_formatted} (#{x.count})", (x.count.to_f / story_count_max)*100]}
+  %>
+  </p>
+  <p>
+   <%= complex_bar_graph story_data  %>
+</p>

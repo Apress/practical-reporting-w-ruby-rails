@@ -1,0 +1,16 @@
+<h1>Apache Log Analyzer</h1>
+
+<h2>Would you like to...</h2>
+<h3>... upload a New Apache Log? </h2>
+<%	form_tag( { :controller => :logs } , {:multipart => true} )do %>
+	<%=file_field 'log', 'file' %>
+    <%=submit_tag 'Upload with Active Record', :name=>:upload_with_active_record%>
+	<%=submit_tag 'Upload with Active Record Extensions', :name=>:upload_with_active_record_extensions%>
+  
+  <%end%>
+<h3>... <%=link_to 'clear your old logs?', {:controller=>:logs}, {:method=>:delete} %></h3>
+<p></p>
+
+<h3>... <%=link_to 'view the cost per sale report?', :controller=>:report, :action=>:show, :format=>'pdf'%></h3>
+<p></p>
+

@@ -1,0 +1,39 @@
+<style>
+  body { font-family: sans-serif }
+  h2 { margin-left: 10pt;}
+  p { margin-left: 10pt; }
+</style>
+
+<h1>Today's Schedule:</h1>
+
+<%@actors_today.each do |actor_today|
+
+%>
+    <h2><%=actor_today[:actor].name%></h2>
+    <p><%=actor_today[:bookings].length>0 ? 
+                actor_today[:bookings].map do |b|
+                            "#{b.booked_at.strftime('%I:%m%p')}, " <<
+                            "#{b.room.name}, " <<
+                            "#{b.project.name}" end.join('<br>')  : 
+                            'Nothing for today!'%> </p>
+
+<%end %>
+
+
+  <h1>Tommorow's Schedule:</h1>
+
+<%@actors_tommorow.each do |actor_tommorow|
+
+%>
+    <h2><%=actor_tommorow[:actor].name%></h2>
+    <p><%=actor_tommorow[:bookings].length>0 ? 
+                actor_tommorow[:bookings].map do |b|
+                            "#{b.booked_at.strftime('%I:%m%p')}, " <<
+                            "#{b.room.name}, " <<
+                            "#{b.project.name}" end.join('<br>')  : 
+                            'Nothing for tommorow!'%></p>
+
+
+<%end %>
+
+

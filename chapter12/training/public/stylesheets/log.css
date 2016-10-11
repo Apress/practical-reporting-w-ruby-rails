@@ -1,0 +1,13 @@
+* {
+  display:block;
+  font-family: helvetica, verdana, sans-serif;
+}
+grades { 
+  padding:1em;
+}
+
+salesperson {
+  font-weight: bold;
+  margin-top:1em;
+}
+

@@ -1,0 +1,2 @@
+class PancakeController < ApplicationController
+end

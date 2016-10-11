@@ -1,0 +1,8 @@
+* { font-family: helvetica, verdana, sans-serif; }
+
+div.flash_notice { padding:1em; border: 2px dashed #cecece; margin: 1em 0;}
+
+input.submit_button {
+  width:120px;
+  height:30px;
+}

@@ -1,0 +1,11 @@
+<h1>Create AdWords Report</h1>
+
+<div>
+  <% form_tag(:action => 'report') do %>
+  Target number of clicks: <%=text_field_tag 'target_clicks', '10',
+                                             :size=>4%>
+
+  <%=submit_tag 'Create Report', :id=>'create_report'%>
+  <% end %>
+</div>
+

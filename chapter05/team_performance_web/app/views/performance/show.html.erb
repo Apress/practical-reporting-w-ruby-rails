@@ -1,0 +1,16 @@
+<%if @events.length>1%>
+
+<div>
+  <%      
+    graph_params = { 'AllowScriptAccess'=>'SameDomain' } 
+  %>
+  <%=flashobject_tag   "/flash/open-flash-chart.swf",
+     :size=>"850x400",
+     :variables=>{'data'=>"/performance" << 
+                          "/#{@game.id}" <<
+                          "/#{@player.id}.text"} %>
+  </div>
+
+<%else%>
+  <p>  <%=@player.name%> has no recorded data for <%=@game.name%>.</p>
+<%end%>

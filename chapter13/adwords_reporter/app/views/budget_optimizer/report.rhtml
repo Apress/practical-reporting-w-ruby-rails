@@ -1,0 +1,42 @@
+<h1>Google AdWords Campaign Plan </h1>
+<%unless @excel_view %>
+<p><%=link_to '[download as excel]', 
+              :params=>{
+                        'view_as_excel' =>true,
+                        'target_clicks'=>@target_clicks
+                       } 
+    %></p>
+<%end%>
+<table>
+  <tr>
+    <th>Ad Headline</th>
+    <th>Avg Clicks</th>
+    <th>Cost Per Click</th>
+  </tr>
+<%@results.each do |r| %>
+
+  <tr>
+    <td><%=r.headline%> </td>
+    <td><%=r.clicks%> clicks </td>
+    <td><%=format_google_currency(r.cost/r.clicks) %></td>
+  </tr>
+<%end%>
+</table>
+
+<h2>Summary</h2>
+<table>
+  <tr>
+    <th>Goal Clicks</th>
+    <td><%=@target_clicks%></td>
+  </tr>
+  <tr>
+    <th>Estimated Available Clicks</th>
+    <td><%=@estimated_clicks%></td>
+  </tr>
+  <tr>
+    <th>Estimated Cost Per Click (CPC)</th>
+    <td><%=format_google_currency(@avg_cost_per_click )%></td>
+  </tr>
+</table>
+
+

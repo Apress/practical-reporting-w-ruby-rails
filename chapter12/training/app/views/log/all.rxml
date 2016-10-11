@@ -1,0 +1,17 @@
+xml.instruct! :xml, :version=>"1.0" 
+xml.instruct! 'xml-stylesheet', :href=>'/stylesheets/log.css'
+
+xml.grades do
+ xml.css :href=>'/stylesheets/log.css'
+ #,:rel=>'Stylesheet',:media=>'screen'
+  @grades.each do |grade|
+    xml.grade do    
+      xml.student   grade.salesperson.name
+      xml.id            grade.id
+      xml.employer      grade.salesperson.employer
+      xml.class         grade.training_class.name
+      xml.grade         grade.percentage_grade
+      xml.took_class_at grade.took_class_at
+    end
+  end
+end

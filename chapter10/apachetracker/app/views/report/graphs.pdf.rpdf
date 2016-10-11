@@ -1,0 +1,10 @@
+pdf.select_font "Times-Roman"
+
+figure_number = 1
+@graph_files.each do |title, graph| 
+	pdf.image graph
+    pdf.text "<i>Figure #{figure_number} of #{@graph_files.length } - #{title}</i>", :left=>6, :font_size=>12
+	figure_number = figure_number  + 1	
+end
+
+

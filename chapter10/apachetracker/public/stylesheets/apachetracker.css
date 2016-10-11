@@ -1,0 +1,26 @@
+body { font-family: franklin gothic book, 
+	                helvetica, 
+					verdana, 
+					sans-serif; 
+       padding-left:1em;}
+
+h1, h2 { font-family: franklin gothic heavy, 
+					  arial black, sans-serif;
+	 font-weight: normal;  }
+
+h3 { font-family: franklin gothic medium;
+	 font-weight: normal;}
+
+a:visited { color:black }
+a:hover { text-decoration: none; }
+a { }
+h3 { padding-left:2em;} 
+form {
+	padding-left: 4em;
+}
+#flash_notice, #flash_error {
+	padding:1em; margin:1em;
+	border: 3px dashed #cecece;
+	}
+
+

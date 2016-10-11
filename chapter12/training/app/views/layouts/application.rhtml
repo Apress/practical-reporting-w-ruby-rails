@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Training Uploader Application <%=@title || ''%></title>
+    <%= stylesheet_link_tag 'training.css'%>
+    <%= javascript_include_tag :defaults %>      
+    <%= calendar_date_select_includes "silver"%>
+  </head>
+  <body>
+    <h1><%=@title%></h1>
+    <%flash.each do |type,msg|%>
+      <div class="flash_<%=type%>">
+        <%=msg%>
+      </div>
+    <%end%>
+    <%=yield%>
+  </body>
+</html>

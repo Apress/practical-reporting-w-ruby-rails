@@ -1,0 +1,20 @@
+<%@title='Upload Training Log'
+  @number_of_elements = 10
+%>
+<% form_tag do %>
+  <p>Class: <%=select 'training_class_id', nil, TrainingClass.find(:all).map { |c| [c.name, c.id] } %> Date:           <%= calendar_date_select_tag "training_class_date", Date.today.strftime('%B %d, %Y') %></p>
+  
+<table>
+  <tr><th>Trainee Name <th>Trainee Employer <th>Grade</tr>
+  <%1.upto(@number_of_elements) do |i|%>
+    <tr>
+      <td><%=text_field "trainee", 'name',:index=>i %> 
+      <td><%=text_field "trainee", 'employer', :index=>i %></td>
+      <td><%=text_field "trainee", 'grade', :index=>i, :size=>3, :value=>'0'%>%</td>
+    </tr>  
+    
+  <%end%>
+  <tr><td><%=submit_tag 'Upload', :class=>'submit_button'%>
+
+    </table>
+<%end%>

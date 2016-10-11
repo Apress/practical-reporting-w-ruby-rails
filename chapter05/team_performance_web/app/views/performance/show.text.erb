@@ -1,0 +1,27 @@
+<%
+    labels = @events.map { |e| e[:event] }
+    values = @events.map { |e| e[:average_time] }
+    min = 0
+    max = values.max
+
+        
+    graph_variables = { "title"=>",{margin:10px;}",
+                        "bar_3d"=>"60,#8E9BF0,#000000",
+                        "values"=>"#{values.join(',')}",
+                        "x_labels"=>"#{labels.join(',')}",
+                        "y_max"=>max,
+                        "y_min"=>min,
+                        "x_axis_3d"=>"16",
+                        "tool_tip"=>"#x_label#: #val#s Average Time",
+                        "y_axis_colour"=>"#F0F0F0",
+                        "y_grid_colour"=>"#E9E9E9",
+                        "y_label_style"=>"12,#000000",
+                        "x_axis_colour"=>"#6F6F7F",
+                        "x_grid_colour"=>"#E9E9E9",
+                        "x_label_style"=>"15,#000000",
+
+                        "bg_colour"=>"#F8F8FF" } 
+                  
+    %>
+&<%=graph_variables.to_a.map { |key,val| "#{key}=#{val}" }.join("& &") %>&
+
